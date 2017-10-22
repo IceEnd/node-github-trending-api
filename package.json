@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "g-s": "babel-node ./src/spider/githubTrending.js",
     "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,12 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "cheerio": "1.0.0-rc.2",
-    "koa": "^2.0.1",
-    "koa-bodyparser": "^4.1.0",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
     "koa-cors": "^0.0.16",
-    "koa-logger": "^2.0.1",
+    "koa-logger": "^3.1.0",
     "koa-mongo": "^0.6.0",
-    "koa-router": "^7.1.1"
+    "koa-router": "^7.2.1",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

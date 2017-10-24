@@ -19,17 +19,28 @@ class GithubTrending extends Spider {
     $repoList.each(function () {
       const $item = $(this);
       const repoText = $item.find('.d-inline-block h3 a').text();
+      const contributors = $item.find('.f6.text-gray>span>a').attr('href');
+      const $builtBy = $item.find('.f6.text-gray>span>a .avatar');
+      const builtBy = [];
+      $builtBy.each(function () {
+        const $img = $(this);
+        builtBy.push({
+          avatar: $img.attr('src'),
+          userName: $img.attr('title'),
+        });
+      });
       data.repositories.push({
-        author: repoText.split(' / ')[0].replace(spaceReg, ''),
+        owner: repoText.split(' / ')[0].replace(spaceReg, ''),
         repoName: repoText.split(' / ')[1].replace(spaceReg, ''),
         href: $item.find('.d-inline-block h3 a').attr('href'),
-        description: $item.find('.py-1 p').text().replace(spaceReg, ''),
+        description: $item.find('.py-1 p').text().replace(/^\s*|\s*$/ig, ''),
         starsTotal: parseInt($item.find('.f6.text-gray.mt-2 a').eq(0).text().replace(/\s|,/ig, ''), 10),
         forkTotal: parseInt($item.find('.f6.text-gray.mt-2 a').eq(1).text().replace(/\s|,/ig, ''), 10),
         starsToday: parseInt($item.find('.f6.text-gray.mt-2 .d-inline-block.float-sm-right').text().replace(/\s|stars|today|,/ig, ''), 10),
+        contributors,
+        builtBy,
       });
     });
-    console.log(data);
     return data;
   }
 }

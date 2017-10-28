@@ -1,2 +1,2 @@
-require('babel-cli/register');
+require('babel-register');
 require('./index.js');

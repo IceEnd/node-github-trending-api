@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./app/index",
-    "dev": "babel-watch ./app/index",
+    "start": "babel-node ./app/app",
+    "dev": "babel-watch ./app/app",
     "g-s": "babel-node ./app/spider/GithubTrending.js",
     "t": "babel-node ./app/modal/githubTrending.js",
     "lint": "eslint app",

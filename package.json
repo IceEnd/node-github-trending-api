@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "g-s": "babel-node ./src/spider/GithubTrending.js",
-    "lint": "eslint src",
+    "start": "babel-node ./app/index",
+    "dev": "babel-watch ./app/index",
+    "g-s": "babel-node ./app/spider/GithubTrending.js",
+    "t": "babel-node ./app/modal/githubTrending.js",
+    "lint": "eslint app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alchemy",
@@ -16,10 +19,9 @@
     "koa-bodyparser": "^4.2.0",
     "koa-cors": "^0.0.16",
     "koa-logger": "^3.1.0",
-    "koa-mongo": "^0.6.0",
     "koa-router": "^7.2.1",
-    "mongodb": "^2.2.33",
-    "request": "^2.83.0"
+    "mongoose": "^4.12.4",
+    "node-schedule": "^1.2.5"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

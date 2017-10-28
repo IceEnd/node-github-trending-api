@@ -1,6 +1,0 @@
-{
-  "mongodb": {
-    "host": "localhost",
-    "prot": 27017
-  }
-}

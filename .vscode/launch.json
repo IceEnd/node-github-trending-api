@@ -1,0 +1,25 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "protocol": "auto",
+      "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/app/index.js",
+      "stopOnEntry": false,
+      "args": [],
+      "cwd": "${workspaceRoot}",
+      "preLaunchTask": "start",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [ "--nolazy" ],
+      "env": {
+          "NODE_ENV": "development"
+      },
+      "sourceMaps": true
+    }
+  ]
+}

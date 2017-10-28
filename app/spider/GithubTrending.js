@@ -1,6 +1,6 @@
 import Spider from '../class/Spider';
 
-class GithubTrending extends Spider {
+export default class GithubTrending extends Spider {
   constructor(props) {
     super(props);
     this.url = 'https://github.com/trending';
@@ -29,14 +29,25 @@ class GithubTrending extends Spider {
           userName: $img.attr('title'),
         });
       });
+      const starsTotalText = $item.find('.f6.text-gray.mt-2 a').eq(0).text().replace(/\s|,/ig, '');
+      const forkTotalText = $item.find('.f6.text-gray.mt-2 a').eq(1).text().replace(/\s|,/ig, '');
+      const starsToday = $item.find('.f6.text-gray.mt-2 .d-inline-block.float-sm-right').text().replace(/\s|stars|today|,/ig, '');
+      let repoLanguageColor = $item.find('.f6.text-gray.mt-2 .repo-language-color').attr('style');
+      if (repoLanguageColor) {
+        repoLanguageColor = repoLanguageColor.replace(/^background-color|;$/ig, '');
+      } else {
+        repoLanguageColor = '';
+      }
       data.repositories.push({
         owner: repoText.split(' / ')[0].replace(spaceReg, ''),
         repoName: repoText.split(' / ')[1].replace(spaceReg, ''),
         href: $item.find('.d-inline-block h3 a').attr('href'),
         description: $item.find('.py-1 p').text().replace(/^\s*|\s*$/ig, ''),
-        starsTotal: parseInt($item.find('.f6.text-gray.mt-2 a').eq(0).text().replace(/\s|,/ig, ''), 10),
-        forkTotal: parseInt($item.find('.f6.text-gray.mt-2 a').eq(1).text().replace(/\s|,/ig, ''), 10),
-        starsToday: parseInt($item.find('.f6.text-gray.mt-2 .d-inline-block.float-sm-right').text().replace(/\s|stars|today|,/ig, ''), 10),
+        programmingLanguage: $item.find('.f6.text-gray.mt-2 span[itemprop="programmingLanguage"]').text().replace(/\s|,/ig, '') || '',
+        repoLanguageColor,
+        starsTotal: starsTotalText ? parseInt(starsTotalText, 10) : 0,
+        forkTotal: forkTotalText ? parseInt(forkTotalText, 10) : 0,
+        starsToday: starsToday ? parseInt(starsToday, 10) : 0,
         contributors,
         builtBy,
       });
@@ -44,7 +55,3 @@ class GithubTrending extends Spider {
     return data;
   }
 }
-
-const gt = new GithubTrending();
-
-gt.getData();

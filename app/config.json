@@ -1,0 +1,14 @@
+{
+  "mongodb": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "cno",
+    "username": "Cononico",
+    "password": "123456"
+  },
+  "spider": {
+    "interval": {
+      "githubTrending": 20
+    }
+  }
+}

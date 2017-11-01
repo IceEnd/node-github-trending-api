@@ -3,7 +3,7 @@ import GithubTrendingSpider from '../spider/GithubTrending';
 import GT from '../modal/githubTrending';
 import { spider } from '../config.json';
 
-const githubTrending = () => {
+const githubTrending = async () => {
   const interval = spider.interval.githubTrending;
   const rule = new schedule.RecurrenceRule();
   const minute = [];

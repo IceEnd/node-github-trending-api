@@ -1,7 +1,7 @@
 {
-  "name": "baka",
+  "name": "node-github-trending-api",
   "version": "0.0.1",
-  "description": "",
+  "description": "github trending api",
   "main": "index.js",
   "scripts": {
     "start": "babel-node ./app/app",
@@ -12,7 +12,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alchemy",
-  "license": "ISC",
+  "license": "BSD-3-Clause",
   "dependencies": {
     "cheerio": "1.0.0-rc.2",
     "koa": "^2.3.0",
@@ -21,7 +21,9 @@
     "koa-logger": "^3.1.0",
     "koa-router": "^7.2.1",
     "mongoose": "^4.12.4",
-    "node-schedule": "^1.2.5"
+    "node-schedule": "^1.2.5",
+    "raw-body": "^2.3.2",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

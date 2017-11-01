@@ -2,9 +2,9 @@
   "mongodb": {
     "host": "localhost",
     "port": 27017,
-    "database": "cno",
-    "username": "Cononico",
-    "password": "123456"
+    "database": "database",
+    "username": "username",
+    "password": "password"
   },
   "spider": {
     "interval": {

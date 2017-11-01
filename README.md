@@ -47,4 +47,4 @@ npm start
 访问```http://localhost:8888/api/github/trending```即可获取最新的github trending。
 
 ## LICENSE
-BSD-3-Clause @Alcemy
+[BSD-3-Clause @Alchcemy](./LICENSE)
